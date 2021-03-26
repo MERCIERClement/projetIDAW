@@ -7,7 +7,6 @@
     }
     renderMenuToHTML($currentPageId);
 ?>
-<section class="corps">
 <?php
     $pageToInclude = $currentPageId.".php";
     if(is_readable($pageToInclude))
@@ -15,9 +14,65 @@
     else
         require_once("error.php");
 ?>
-    <h2>Du contenu</h2> 
-                <p>Toujours + de contenu</p>
-</section>
+    <table>
+            <tr>
+                <td>
+                    <form class="apport" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off"> 
+                        <div>
+                            <label>Type</label>
+                            <input type="text" name="type" id="type">
+                        </div>
+                        <div>
+                            <label>Nom</label>
+                            <input type="text" name="nom" id="nom">
+                        </div>
+                        <p>
+                            <label>Glucides (pour 100g)</label>
+                            <input type="float" name="glucides" id="glucides">
+                        </p>
+                        <p>
+                            <label>Protéines (pour 100g)</label>
+                            <input type="float" name="proteines" id="proteines">
+                        </p>
+                        <p>
+                            <label>Lipides (pour 100g)</label>
+                            <input type="float" name="lipides" id="lipides">
+                        </p>
+                        <p>
+                            <label>Sel (pour 100g)</label>
+                            <input type="float" name="sel" id="sel">
+                        </p>
+                        <p>
+                            <label>Calories (kcal/100g)</label>
+                            <input type="float" name="calories" id="calories">
+                        </p>
+                        <div class="bouton-du-form">
+                            <input type="submit" value="Submit">
+                        </div>
+                        </form>
+                </td>
+                <td>
+                    <table class="liste" id="listealiment">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Nom</th>
+                                <th>Glucides(/100gr)</th>
+                                <th>Protéines(/100gr)</th>
+                                <th>Lipides(/100gr)</th>
+                                <th>Sel(/100gr)</th>
+                                <th>Calories(kcal/100gr)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <script src="js/crud.js"></script>
     <?php
         require_once("footer.php");
     ?>
