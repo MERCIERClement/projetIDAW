@@ -1,12 +1,14 @@
 let selectedRow = null;
 function onFormSubmit(){
-    let formData = lireLeForm();
-    if(selectedRow == null) {
-        insererEntree(formData);
-    } else {
-        updateRecord(formData)
+    if(validate()){
+        let formData = lireLeForm();
+        if(selectedRow == null) {
+            insererEntree(formData);
+        } else {
+            updateRecord(formData)
+        }
+        resetForm();
     }
-    resetForm();
 }
 function lireLeForm() {
     let formData = {};
@@ -74,8 +76,23 @@ function updateRecord(formData) {
 
 function onDelete(td) {
     if(confirm('Voulez-vous vraiment supprimer cette entrée ?')) {
-    row = td.parentElement.parentElement;
-    document.getElementById("listealiment").deleteRow(row.rowIndex);
-    resetForm();
+        row = td.parentElement.parentElement;
+        document.getElementById("listealiment").deleteRow(row.rowIndex);
+        resetForm();
     }
+}
+function validate() {
+    isValid=true;
+    if(document.getElementById('type').value == "" || document.getElementById('nom').value == "" || document.getElementById('glucides').value == "" || 
+    document.getElementById('proteines').value == "" || document.getElementById('lipides').value == "" || document.getElementById('sel').value == "" || document.getElementById('calories').value == "" ){
+        isValid= false;
+        document.getElementById("nomValidationError").classList.remove('hide');
+    }
+    else{
+        isValid=true;
+        if(!document.getElementById("nomValidationError").classList.contains('hide')){
+            document.getElementById("nomValidationError").classList.add('hide')
+        }
+    }
+    return isValid;
 }

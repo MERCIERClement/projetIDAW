@@ -19,8 +19,8 @@
                 <td>
                     <form class="apport" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off"> 
                         <div>
-                            <label>Type</label>
-                            <input type="text" name="type" id="type">
+                            <label>Type</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
+                            <input type="text" name="type" id="type">   
                         </div>
                         <div>
                             <label>Nom</label>
