@@ -11,3 +11,4 @@
         <h1 class="titre">iℳangerℳieux</h1>
     </header>
     <body>
+        <div class="main-container">

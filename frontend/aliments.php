@@ -82,7 +82,11 @@
                         "columnDefs": [ {
                             "targets": -1,
                             "data": null,
+<<<<<<< Updated upstream
                             "defaultContent": "<button class='delete'>Delete</button><button class='update'>Update</button>"
+=======
+                            "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>" //https://datatables.net/examples/ajax/null_data_source.html
+>>>>>>> Stashed changes
                         } ]
                     });
                     $("#listealiment tbody").on('click','.delete',function() {

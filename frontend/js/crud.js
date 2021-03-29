@@ -114,3 +114,10 @@ function showAliment(){
         });
         alert(response);
     })}
+
+    $('.delete').on( 'click', 'button', function () {
+        alert("delete");
+    } );
+    $('.update').on( 'click', 'button', function () {
+        alert("update");
+    } );

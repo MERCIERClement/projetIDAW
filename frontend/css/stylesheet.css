@@ -1,8 +1,4 @@
-*{
-    margin:0;
-    padding:0;
-}
-body,html{
+html{
     height:100%;
 }
 body {
@@ -38,11 +34,6 @@ p {
 }
 footer{
     background:#ffa4a4;
-    position:absolute;
-    bottom:0;
-    width:100%;
-    padding-top:50px;
-    height:50px;
     text-align: center;
     font-style:italic;
 }
@@ -80,10 +71,10 @@ body > table{
   }
   
   input[type=submit]{
-    width: 30%;
+    width: 40%;
     background-color: #ddd;
     color: #000;
-    padding: 14px 20px;
+    padding: 2px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
@@ -113,3 +104,12 @@ body > table{
   form > p     { display: table-row;  }
   p > label { display: table-cell; }
   p > input { display: table-cell; }
+
+  body{ 
+    display:flex; 
+    flex-direction:column; 
+  }
+  
+  footer{
+    margin-top:auto; 
+  }
