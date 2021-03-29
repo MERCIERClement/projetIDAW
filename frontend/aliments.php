@@ -13,7 +13,8 @@
         require_once($pageToInclude);
     else
         require_once("error.php");
-?>
+?> 
+    <script type="text/javascript" charset="utf8" src="/js/datatables.js"></script>
     <table>
             <tr>
                 <td>
@@ -72,6 +73,9 @@
                 </td>
             </tr>
         </table>
+        <script>$(document).ready( function () {
+                    $('#listealiment').DataTable();
+                } )</script>
         <script src="js/crud.js"></script>
     <?php
         require_once("footer.php");

@@ -1,5 +1,5 @@
 </body>
 <footer>
-    <p>© iMangerMieux all rights reserved © - Thomas Vinchon - Clément Mercier</p>
+    <p>© iℳangerℳieux all rights reserved © - Thomas Vinchon - Clément Mercier</p>
 </footer>
 </html>

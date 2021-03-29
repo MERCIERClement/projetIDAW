@@ -96,3 +96,9 @@ function validate() {
     }
     return isValid;
 }
+
+function dataTables(){
+    $(document).ready( function () {
+        $('#listealiment').DataTable();
+    } )
+}
