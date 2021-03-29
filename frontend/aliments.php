@@ -74,7 +74,7 @@
             </tr>
         </table>
         <script>$(document).ready( function () {
-                    $('#listealiment').DataTable({
+                    var table =$('#listealiment').DataTable({
                         'ajax':{
                             "url":"../backend/getAliment.php",
                             "dataSrc":""
@@ -82,8 +82,14 @@
                         "columnDefs": [ {
                             "targets": -1,
                             "data": null,
-                            "defaultContent": "<button>Delete</button><button>Update</button>"
+                            "defaultContent": "<button class='delete'>Delete</button><button class='update'>Update</button>"
                         } ]
+                    });
+                    $("#listealiment tbody").on('click','.delete',function() {
+                        alert("delete");
+                    });
+                    $("#listealiment tbody").on('click','.update', function() {
+                        alert("update");
                     });
                 } )</script>
         <script src="js/crud.js"></script>
