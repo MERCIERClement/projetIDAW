@@ -78,7 +78,12 @@
                         'ajax':{
                             "url":"../backend/getAliment.php",
                             "dataSrc":""
-                        }
+                        },
+                        "columnDefs": [ {
+                            "targets": -1,
+                            "data": null,
+                            "defaultContent": "<button>Delete</button><button>Update</button>"
+                        } ]
                     });
                 } )</script>
         <script src="js/crud.js"></script>

@@ -50,6 +50,6 @@ header('Content-Type: application/json');
 
     $retour["success"] = true;
     $retour["message"] = "Voici les aliments";
-    $retour["resultats"]["aliment"] = $requete->fetchAll();
+    $retour["resultats"]["aliment"] = $requete->fetchAll($fetch_style=PDO::FETCH_NUM);
     echo safe_json_encode($retour["resultats"]["aliment"]);
     ?>
