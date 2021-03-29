@@ -102,3 +102,15 @@ function dataTables(){
         $('#listealiment').DataTable();
     } )
 }
+
+function showAliment(){
+    $(document).ready(function(){
+        $.ajax({
+            type: "GET",
+            url: "../../backend/getAliment.php",
+            success: function(array){
+                let response = array;
+            }
+        });
+        alert(response);
+    })}

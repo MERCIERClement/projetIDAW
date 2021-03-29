@@ -18,7 +18,7 @@
     <table>
             <tr>
                 <td>
-                    <form class="apport" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off"> 
+                    <form class="apport" onsubmit="event.preventDefault();onFormSubmit();showAliment();" autocomplete="off"> 
                         <div>
                             <label>Type</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
                             <input type="text" name="type" id="type">   
@@ -78,6 +78,5 @@
                 } )</script>
         <script src="js/crud.js"></script>
     <?php
-        require_once("../backend/aliments.php");
-        require_once("footer.php");
+       require_once("footer.php");
     ?>
