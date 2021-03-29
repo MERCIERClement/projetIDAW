@@ -78,5 +78,6 @@
                 } )</script>
         <script src="js/crud.js"></script>
     <?php
+        require_once("../backend/aliments.php");
         require_once("footer.php");
     ?>
