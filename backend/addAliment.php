@@ -17,6 +17,29 @@
                 $lipides=$_POST['lipides'];
                 $sel=$_POST['sel'];
                 $calories=$_POST['calories'];
+
+                $sql_aliment = "INSERT INTO aliment (type, nom) VALUES (:type, nom);";
+                $sql_apport  = "INSERT INTO apport (glucides, proteines, lipides, sel, calories) VALUES (:glucides, :proteines, :lipides, :sel, :calories);";
+
+                $query_aliment = $pdo->prepare($sql_aliment);
+
+                $query_aliment->bindValue(':type',$type, PDO::PARAM_STR);
+                $query_aliment->bindValue('nom',$nom, PDO::PARAM_STR);
+
+
+                $query_aliment->execute();
+
+
+                $query_apport = $pdo->prepare($sql_apport);
+
+                $query_apport->bindValue(':glucides',$glucides, PDO::PARAM_STR);
+                $query_apport->bindValue(':proteines',$proteines, PDO::PARAM_STR);
+                $query_apport->bindValue(':lipides',$lipides,PDO::PARAM_STR);
+                $query_apport->bindValue(':sel',$sel,PDO::PARAM_STR);
+                $query_apport->bindValue(':calories',$calories,¨PDO::PARAM_STR);
+
+
+                $query_apport->execute();
             }
         }
     }
