@@ -18,7 +18,7 @@
     <table>
             <tr>
                 <td>
-                    <form class="apport" onsubmit="event.preventDefault();onFormSubmit();showAliment();" autocomplete="off"> 
+                    <form class="apport" method="post" autocomplete="off"> 
                         <div>
                             <label>Type</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
                             <input type="text" name="type" id="type">   
@@ -51,6 +51,7 @@
                             <input type="submit" value="Submit">
                         </div>
                         </form>
+                        <?php require('../backend/addAliment.php') ?>
                 </td>
                 <td>
                     <table class="liste" id="listealiment">
