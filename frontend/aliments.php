@@ -14,7 +14,7 @@
     else
         require_once("error.php");
 ?> 
-    <script type="text/javascript" charset="utf8" src="/js/datatables.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/datatables.js"></script>
     <table>
             <tr>
                 <td>
@@ -74,7 +74,12 @@
             </tr>
         </table>
         <script>$(document).ready( function () {
-                    $('#listealiment').DataTable();
+                    $('#listealiment').DataTable({
+                        'ajax':{
+                            "url":"../backend/getAliment.php",
+                            "dataSrc":""
+                        }
+                    });
                 } )</script>
         <script src="js/crud.js"></script>
     <?php
