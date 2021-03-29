@@ -8,7 +8,7 @@
         $retour["success"] = false;
         $retour["message"] = "Connexion échouée";
     }
-    $requete = $pdo->prepare("UPDATE aliment SET nom=$data['nom'] WHERE id_aliment=$data['row_number']);
+    $requete = $pdo->prepare("UPDATE aliment SET nom=$data['nom'] WHERE id_aliment=$data['row_number']");
     $requete->execute();
 }
 ?>

@@ -87,7 +87,7 @@
                         } ]
                     });
                     $("#listealiment tbody").on('click','.delete',function() {
-                        alert("delete");
+                        delAliment(this.closest('tr').rowIndex);
                     });
                     $("#listealiment tbody").on('click','.update', function() {
                         alert("update");

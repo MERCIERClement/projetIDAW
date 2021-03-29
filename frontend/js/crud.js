@@ -115,9 +115,31 @@ function showAliment(){
         alert(response);
     })}
 
-    $('.delete').on( 'click', 'button', function () {
-        alert("delete");
-    } );
-    $('.update').on( 'click', 'button', function () {
-        alert("update");
-    } );
+function delAliment(idDel){
+    $(document).ready(function(){
+        $.ajax({
+            type: "POST",
+            url: "../../backend/delAliment.php",
+            data: {
+                id: idDel
+            },
+            dataType: "json",
+            success: function(dataResult){
+				//var dataResult = JSON.parse(dataResult);
+				//if(dataResult.statusCode==200){
+					$('#listealiment').DataTable({
+                        'ajax':{
+                            "url":"../backend/getAliment.php",
+                            "dataSrc":""
+                        },
+                        "columnDefs": [ {
+                            "targets": -1,
+                            "data": null,
+                            "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>"
+                        } ]
+                    }
+                    );
+				//}
+        }});
+    })
+}
