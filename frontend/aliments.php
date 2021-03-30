@@ -57,6 +57,7 @@
                     <table class="liste" id="listealiment">
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Type</th>
                                 <th>Nom</th>
                                 <th>Glucides(/100gr)</th>
@@ -88,10 +89,10 @@
                         } ]
                     });
                     $("#listealiment tbody").on('click','.delete',function() {
-                        delAliment(this.closest('tr').rowIndex);
+                        delAliment(this.closest('tr').cells[0].innerHTML);
                     });
                     $("#listealiment tbody").on('click','.update', function() {
-                        alert("update");
+                        alert(this.closest('tr').cells[0].innerHTML);
                     });
                 } )</script>
         <script src="js/crud.js"></script>

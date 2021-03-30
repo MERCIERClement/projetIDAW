@@ -45,7 +45,7 @@ header('Content-Type: application/json');
         $retour["success"] = false;
         $retour["message"] = "Connexion échouée";
     }
-    $requete = $pdo->prepare("SELECT aliment.type,aliment.nom,apport.glucides,apport.proteines,apport.lipides,apport.sel,apport.calories FROM aliment INNER JOIN apport ON aliment.id_aliment=apport.id_aliment");
+    $requete = $pdo->prepare("SELECT aliment.id_aliment, aliment.type,aliment.nom,apport.glucides,apport.proteines,apport.lipides,apport.sel,apport.calories FROM aliment INNER JOIN apport ON aliment.id_aliment=apport.id_aliment");
     $requete->execute();
 
     $retour["success"] = true;
