@@ -9,7 +9,6 @@ function onFormSubmit(){
 				$('#listealiment').DataTable().ajax.reload(null,false);
         }
         })
-        resetForm();
     }
 }
 function lireLeForm() {
