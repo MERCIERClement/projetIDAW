@@ -74,7 +74,7 @@
                 </td>
             </tr>
         </table>
-        <?php require_once('../backend/addAliment.php')?>
+        <?php require_once('../backend/addAlimentcopy.php')?>
         <script>$(document).ready( function () {
                     var table =$('#listealiment').DataTable({
                         'ajax':{

@@ -1,10 +1,9 @@
 <?php 
         try {
         $pdo = new PDO('mysql:host=localhost;port=3306;dbname=tp3idaw;','root','');
-        alerte("connexion reussie");
+        echo "connexion reussie";
     } catch(Exception $e) {
-        $retour["success"] = false;
-        $retour["message"] = "Connexion échouée";
+        alert("Exception reçue : ", $e->getMessage(), '\n');}
         if(isset($_GET)){
             if(!empty($_GET['nom']) && !empty($_GET['type']) && !empty($_GET['glucides']) &&
             !empty($_GET['proteines']) && !empty($_GET['lipides']) && !empty($_GET['sel']) &&
@@ -41,5 +40,4 @@
                 $query_apport->execute();
             }
         }
-    }
 ?>
