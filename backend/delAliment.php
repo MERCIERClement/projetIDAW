@@ -1,23 +1,17 @@
 <?php
-    try {
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: DELETE");
+        try {
             $pdo = new PDO('mysql:host=localhost;port=3306;dbname=tp3idaw;','root','');
-            $retour["success"] = true;
-            $retour["message"] = "Connexion réussie";
+            //echo "connexion reussie";
         } catch(Exception $e) {
-            $retour["success"] = false;
-            $retour["message"] = "Connexion échouée";
-        }
-        $id=0;
-        if(isset($_POST['id'])){
-            $id = strip_tags($_POST['id']);
-        }
-        print_r($id);
-        if($id>0){
-            $sql = "DELETE FROM `aliment` WHERE `id`=:id;";
+            alert("Exception reçue : ", $e->getMessage(), '\n');}
+        if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['id'])) {
+            $sql = "DELETE FROM aliment WHERE id_aliment=:id";
         
-            $query = $db->prepare($sql);
+            $query = $pdo->prepare($sql);
         
-            $query->bindValue(':id', $id, PDO::PARAM_INT);
+            $query->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
             $query->execute();
         }
 ?>
