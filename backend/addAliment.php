@@ -1,30 +1,29 @@
 <?php 
         try {
         $pdo = new PDO('mysql:host=localhost;port=3306;dbname=tp3idaw;','root','');
-        $retour["success"] = true;
-        $retour["message"] = "Connexion réussie";
+        alerte("connexion reussie");
     } catch(Exception $e) {
         $retour["success"] = false;
         $retour["message"] = "Connexion échouée";
-        if(isset($_POST)){
-            if(!empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['glucides']) &&
-            !empty($_POST['proteines']) && !empty($_POST['lipides']) && !empty($_POST['sel']) &&
-            !empty($_POST['calories'])){
-                $nom=$_POST['nom'];
-                $type=$_POST['type'];
-                $glucides=$_POST['glucides'];
-                $proteines=$_POST['proteines'];
-                $lipides=$_POST['lipides'];
-                $sel=$_POST['sel'];
-                $calories=$_POST['calories'];
+        if(isset($_GET)){
+            if(!empty($_GET['nom']) && !empty($_GET['type']) && !empty($_GET['glucides']) &&
+            !empty($_GET['proteines']) && !empty($_GET['lipides']) && !empty($_GET['sel']) &&
+            !empty($_GET['calories'])){
+                $nom=$_GET['nom'];
+                $type=$_GET['type'];
+                $glucides=$_GET['glucides'];
+                $proteines=$_GET['proteines'];
+                $lipides=$_GET['lipides'];
+                $sel=$_GET['sel'];
+                $calories=$_GET['calories'];
 
-                $sql_aliment = "INSERT INTO aliment (type, nom) VALUES (:type, nom);";
+                $sql_aliment = "INSERT INTO aliment (type, nom) VALUES (:type, :nom);";
                 $sql_apport  = "INSERT INTO apport (glucides, proteines, lipides, sel, calories) VALUES (:glucides, :proteines, :lipides, :sel, :calories);";
 
                 $query_aliment = $pdo->prepare($sql_aliment);
 
                 $query_aliment->bindValue(':type',$type, PDO::PARAM_STR);
-                $query_aliment->bindValue('nom',$nom, PDO::PARAM_STR);
+                $query_aliment->bindValue(':nom',$nom, PDO::PARAM_STR);
 
 
                 $query_aliment->execute();

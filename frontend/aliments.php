@@ -74,6 +74,7 @@
                 </td>
             </tr>
         </table>
+        <?php require_once('../backend/addAliment.php')?>
         <script>$(document).ready( function () {
                     var table =$('#listealiment').DataTable({
                         'ajax':{
