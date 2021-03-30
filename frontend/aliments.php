@@ -92,7 +92,7 @@
                         delAliment(this.closest('tr').cells[0].innerHTML);
                     });
                     $("#listealiment tbody").on('click','.update', function() {
-                        alert(this.closest('tr').cells[0].innerHTML);
+                        onEdit(this);
                     });
                 } )</script>
         <script src="js/crud.js"></script>

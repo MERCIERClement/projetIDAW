@@ -55,13 +55,13 @@ function resetForm(){
 
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("type").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("nom").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("glucides").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("proteines").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("lipides").value = selectedRow.cells[4].innerHTML;
-    document.getElementById("sel").value = selectedRow.cells[5].innerHTML;
-    document.getElementById("calories").value = selectedRow.cells[6].innerHTML;
+    document.getElementById("type").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("nom").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("glucides").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("proteines").value = selectedRow.cells[4].innerHTML;
+    document.getElementById("lipides").value = selectedRow.cells[5].innerHTML;
+    document.getElementById("sel").value = selectedRow.cells[6].innerHTML;
+    document.getElementById("calories").value = selectedRow.cells[7].innerHTML;
 }
 
 function updateRecord(formData) {
@@ -120,11 +120,7 @@ function delAliment(idDel){
         $.ajax({
             type: "DELETE",
             url: "../../backend/delAliment.php?id="+idDel,
-//            data: {
-//                id: idDel
-//            },
             success: function(){
-                //debugger
 				$('#listealiment').DataTable().ajax.reload(null,false);
         }});
     })
