@@ -18,7 +18,8 @@
     <table>
             <tr>
                 <td>
-                    <form class="apport" method="GET" autocomplete="off"> 
+                    <iframe name="iframe" style="display:none;"></iframe>
+                    <form class="apport" method="GET" action="../backend/addAlimentcopy.php" autocomplete="off" target="iframe"> 
                         <div>
                             <label>Type</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
                             <input type="text" name="type" id="type">   
@@ -96,6 +97,5 @@
                 } )</script>
         <script src="js/crud.js"></script>
     <?php
-       require_once('../backend/addAlimentcopy.php');
        require_once("footer.php");
     ?>

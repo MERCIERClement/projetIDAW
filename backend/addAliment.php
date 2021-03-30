@@ -34,7 +34,7 @@
                 $query_apport->bindValue(':proteines',$proteines, PDO::PARAM_STR);
                 $query_apport->bindValue(':lipides',$lipides,PDO::PARAM_STR);
                 $query_apport->bindValue(':sel',$sel,PDO::PARAM_STR);
-                $query_apport->bindValue(':calories',$calories,¨PDO::PARAM_STR);
+                $query_apport->bindValue(':calories',$calories,PDO::PARAM_STR);
 
 
                 $query_apport->execute();
