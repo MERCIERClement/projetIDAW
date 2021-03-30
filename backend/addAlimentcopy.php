@@ -1,7 +1,6 @@
 <?php 
         try {
         $pdo = new PDO('mysql:host=localhost;port=3306;dbname=tp3idaw;','root','');
-        echo "connexion reussie";
     } catch(Exception $e) {
         alert("Exception reçue : ", $e->getMessage(), '\n');}
         if( isset($_GET['nom']) && !empty($_GET['nom']) && isset($_GET['type']) && !empty($_GET['type']) ){
