@@ -100,10 +100,7 @@ body > table{
   .hide{
     display:none;
   }
-  form.apport  { display: table;      }
-  form > p     { display: table-row;  }
-  p > label { display: table-cell; }
-  p > input { display: table-cell; }
+
 
   body{ 
     display:flex; 
