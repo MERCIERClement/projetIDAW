@@ -49,7 +49,7 @@
                             <input type="float" name="calories" id="calories">
                         </p>
                         <div class="bouton-du-form">
-                            <input type="submit" value="Submit">
+                            <input id="formbutton" type="submit" value="Submit">
                         </div>
                         </form>
                         <?php ?>
@@ -93,6 +93,10 @@
                     });
                     $("#listealiment tbody").on('click','.update', function() {
                         onEdit(this);
+                    });
+                    $(".apport").on('submit', function(e){
+                        e.preventDefault();
+                        onFormSubmit();
                     });
                 } )</script>
         <script src="js/crud.js"></script>
