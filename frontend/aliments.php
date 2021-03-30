@@ -19,7 +19,7 @@
             <tr>
                 <td>
                     <iframe name="iframe" style="display:none;"></iframe>
-                    <form class="apport" method="GET" action="../backend/addAlimentcopy.php" autocomplete="off" target="iframe"> 
+                    <form class="apport" method="GET" action="../backend/addAliment.php" autocomplete="off" target="iframe"> 
                         <div>
                             <label>Type</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
                             <input type="text" name="type" id="type">   
