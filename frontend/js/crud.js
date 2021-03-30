@@ -2,11 +2,13 @@ let selectedRow = null;
 function onFormSubmit(){
     if(validate()){
         let formData = lireLeForm();
-        if(selectedRow == null) {
-            insererEntree(formData);
-        } else {
-            updateRecord(formData)
+        $.ajax({
+            type: "GET",
+            url: "../../backend/addAliment.php?type="+formData.type+"&nom="+formData.nom+"&glucides="+formData.glucides+"&proteines="+formData.proteines+"&lipides="+formData.lipides+"&sel="+formData.sel+"&calories="+formData.calories,
+            success: function(){
+				$('#listealiment').DataTable().ajax.reload(null,false);
         }
+        })
         resetForm();
     }
 }
