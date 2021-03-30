@@ -12,5 +12,5 @@
             $query_aliment->bindValue(':nom',$nom, PDO::PARAM_STR);
             $query_aliment->execute();
             }
-        if 
+        
 ?>
