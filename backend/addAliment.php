@@ -47,7 +47,7 @@
                 $lipides=$_GET['lipides'];
                 $sel=$_GET['sel'];
                 $calories=$_GET['calories'];
-                $sql_modify_apport = "UPDATE apport SET glucides=:glucides,proteines=:proteines,lipides=:lipides,sel=:sel,calories=:calories WHERE id_aliment='".$retour['id_aliment']."' ";
+                $sql_modify_apport = "UPDATE apport SET glucides= :glucides,proteines= :proteines,lipides= :lipides,sel= :sel,calories= :calories WHERE id_aliment=".$retour['0']['0'];
                 $query_modify_apport = $pdo->prepare($sql_modify_apport);
                 $query_modify_apport->bindValue(':glucides',$glucides, PDO::PARAM_STR);
                 $query_modify_apport->bindValue(':proteines',$proteines, PDO::PARAM_STR);
