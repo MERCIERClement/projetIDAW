@@ -75,7 +75,6 @@
                 </td>
             </tr>
         </table>
-        <?php require_once('../backend/addAlimentcopy.php')?>
         <script>$(document).ready( function () {
                     var table =$('#listealiment').DataTable({
                         'ajax':{
@@ -97,5 +96,6 @@
                 } )</script>
         <script src="js/crud.js"></script>
     <?php
+       require_once('../backend/addAlimentcopy.php');
        require_once("footer.php");
     ?>
