@@ -50,17 +50,17 @@ header('Content-Type: application/json');
         $requete->execute();
     
         $retour["success"] = true;
-        $retour["message"] = "Voici les aliments";
-        $retour["resultats"]["aliment"] = $requete->fetchAll();
-        echo safe_json_encode($retour["resultats"]["aliment"]);
+        $retour["message"] = "Voici le journal";
+        $retour["resultats"]["journal"] = $requete->fetchAll();
+        echo safe_json_encode($retour["resultats"]["journal"]);
     }
     else{
-    $requete = $pdo->prepare("SELECT aliment.id_aliment, aliment.type,aliment.nom,apport.glucides,apport.proteines,apport.lipides,apport.sel,apport.calories FROM aliment INNER JOIN apport ON aliment.id_aliment=apport.id_aliment");
+    $requete = $pdo->prepare("SELECT journal.ind,aliment.nom,manger.quantite,journal.date FROM journal INNER JOIN manger ON journal.ind=manger.ind INNER JOIN aliment ON manger.id_aliment=aliment.id_aliment");
     $requete->execute();
 
     $retour["success"] = true;
-    $retour["message"] = "Voici les aliments";
-    $retour["resultats"]["aliment"] = $requete->fetchAll($fetch_style=PDO::FETCH_NUM);
-    echo safe_json_encode($retour["resultats"]["aliment"]);
+    $retour["message"] = "Voici le journal";
+    $retour["resultats"]["journal"] = $requete->fetchAll($fetch_style=PDO::FETCH_NUM);
+    echo safe_json_encode($retour["resultats"]["journal"]);
     }
     ?>
