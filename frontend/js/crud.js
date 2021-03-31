@@ -127,3 +127,10 @@ function delAliment(idDel){
         }});
     })
 }
+
+function chooseLogin(loginChosen){
+    $(document).ready(function(){
+        document.cookie = 'login='+loginChosen;
+        document.location.href="index.php"; 
+    })
+}
