@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `compose` (
 
 DROP TABLE IF EXISTS `journal`;
 CREATE TABLE IF NOT EXISTS `journal` (
-  `ind` int(11) NOT NULL,
+  `ind` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `Login` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   PRIMARY KEY (`ind`),

@@ -22,6 +22,10 @@
                     <iframe name="iframe" style="display:none;"></iframe>
                     <form id="formJ" method="GET" action="../backend/addAliment.php" autocomplete="off" target="iframe"> 
                         <div>
+                            <label>Indice :</label>
+                            <input type="text" name="ind" id="ind" readonly>
+                        </div>
+                        <div>
                             <label>Plat :</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
                             <select name="nom" id="nom" form="formJ">  
                             </select>
@@ -44,7 +48,7 @@
                     <table class="liste" id="listerepas">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>Ind</th>
                                 <th>Nom</th>
                                 <th>Quantité (en g)</th>
                                 <th>Date</th>
@@ -70,15 +74,15 @@
                             "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>" //https://datatables.net/examples/ajax/null_data_source.html
                         } ]
                     });
-                    $("#listealiment tbody").on('click','.delete',function() {
+                    $("#listerepas tbody").on('click','.delete',function() {
                         //delAliment(this.closest('tr').cells[0].innerHTML);
                     });
-                    $("#listealiment tbody").on('click','.update', function() {
-                        //onEdit(this);
+                    $("#listerepas tbody").on('click','.update', function() {
+                        onEditJ(this);
                     });
-                    $(".apport").on('submit', function(e){
+                    $("#formJ").on('submit', function(e){
                         e.preventDefault();
-                        //onFormSubmit();
+                        onFormSubmitJ();
                     });
                     $(function(){
 
@@ -87,7 +91,7 @@
 
                         $.each(data,function(index,item) 
                         {
-                            items+="<option value='"+item.id_aliment+"'>"+item.nom+"</option>";
+                            items+="<option value='"+item.nom+"'>"+item.nom+"</option>";
                         });
                         $("#nom").html(items); 
                         });

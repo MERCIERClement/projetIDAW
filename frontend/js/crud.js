@@ -127,10 +127,70 @@ function delAliment(idDel){
         }});
     })
 }
+//Login
 
 function chooseLogin(loginChosen){
     $(document).ready(function(){
         document.cookie = 'login='+loginChosen;
         document.location.href="index.php"; 
     })
+}
+
+//Journal
+
+function onFormSubmitJ(){
+    if(validateJ()){
+        let formData = lireLeFormJ();
+        $.ajax({
+            type: "GET",
+            url: "../../backend/addJournal.php?ind="+formData.ind+"&nom="+formData.nom+"&quantite="+formData.quantite+"&date="+formData.date,
+            success: function(){
+				$('#listerepas').DataTable().ajax.reload(null,false);
+        }
+        })
+        resetFormJ();
+    }
+}
+
+function lireLeFormJ() {
+    let formData = {};
+    formData["ind"] = document.getElementById("ind").value;
+    formData["nom"] = document.getElementById("nom").value;
+    formData["quantite"] = document.getElementById("quantite").value;
+    formData["date"] = document.getElementById("date").value;
+    return formData
+}
+
+function resetFormJ(){
+    document.getElementById("ind").value ="";
+    document.getElementById("nom").value ="";
+    document.getElementById("quantite").value ="";
+    document.getElementById("date").value ="";
+}
+
+function validateJ() {
+    isValid=true;
+    if(document.getElementById('nom').value == "" || document.getElementById('quantite').value == "" || document.getElementById('date').value == ""){
+        isValid= false;
+        document.getElementById("nomValidationError").classList.remove('hide');
+    }
+    else{
+        isValid=true;
+        if(!document.getElementById("nomValidationError").classList.contains('hide')){
+            document.getElementById("nomValidationError").classList.add('hide')
+        }
+    }
+    return isValid;
+}
+
+function onEditJ(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("ind").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("nom").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("quantite").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("date").value = selectedRow.cells[3].innerHTML;
+}
+
+function test(){
+    alert(document.getElementById("date").value);
 }
