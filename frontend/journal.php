@@ -42,6 +42,8 @@
                             <input id="formbutton" type="submit" value="Submit">
                         </div>
                         </form>
+                        <button id="clearform" type="button">Clear Form</button>
+
                         <?php ?>
                 </td>
                 <td>
@@ -79,6 +81,9 @@
                     });
                     $("#listerepas tbody").on('click','.update', function() {
                         onEditJ(this);
+                    });
+                    $("td").on('click','#clearform', function() {
+                        resetFormJ();
                     });
                     $("#formJ").on('submit', function(e){
                         e.preventDefault();

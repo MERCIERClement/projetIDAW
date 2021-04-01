@@ -55,7 +55,7 @@
                             <input id="formbutton" type="submit" value="Submit">
                         </div>
                         </form>
-                        <?php ?>
+                    <button id="clearform" type="button">Clear Form</button>
                 </td>
                 <td>
                     <table class="liste" id="listealiment">
@@ -96,6 +96,9 @@
                     });
                     $("#listealiment tbody").on('click','.update', function() {
                         onEdit(this);
+                    });
+                    $("td").on('click','#clearform', function() {
+                        resetForm();
                     });
                     $(".apport").on('submit', function(e){
                         e.preventDefault();
