@@ -23,7 +23,7 @@
                     <form id="formJ" method="GET" action="../backend/addAliment.php" autocomplete="off" target="iframe"> 
                         <div>
                             <label>Indice :</label>
-                            <input type="text" name="ind" id="ind" readonly>
+                            <input type="int" name="ind" id="ind" readonly>
                         </div>
                         <div>
                             <label>Plat :</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
@@ -48,7 +48,7 @@
                     <table class="liste" id="listerepas">
                         <thead>
                             <tr>
-                                <th>Ind</th>
+                                <th>Indice</th>
                                 <th>Nom</th>
                                 <th>Quantité (en g)</th>
                                 <th>Date</th>
