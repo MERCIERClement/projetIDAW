@@ -136,6 +136,22 @@ function chooseLogin(loginChosen){
     })
 }
 
+function parseLogin(login){
+    var a = login.split('@');
+    var logArray = a[0].split('.');
+    login = "";
+    logArray.forEach(mot => {
+        if(login==""){
+            login+=mot;
+        }
+        else{
+            login+=" "+mot;
+        }
+        
+    });
+    return login;
+}
+
 //Journal
 
 function onFormSubmitJ(){
@@ -206,18 +222,3 @@ function test(){
     alert(document.getElementById("date").value);
 }
 
-function parseLogin(login){
-    var a = login.split('@');
-    var logArray = a[0].split('.');
-    login = "";
-    logArray.forEach(mot => {
-        if(login==""){
-            login+=mot;
-        }
-        else{
-            login+=" "+mot;
-        }
-        
-    });
-    return login;
-}
