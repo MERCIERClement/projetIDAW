@@ -79,32 +79,6 @@
                 </td>
             </tr>
         </table>
-        <script>$(document).ready( function () {
-                    var table =$('#listealiment').DataTable({
-                        'ajax':{
-                            "url":"../backend/getAliment.php",
-                            "dataSrc":""
-                        },
-                        "columnDefs": [ {
-                            "targets": -1,
-                            "data": null,
-                            "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>" //https://datatables.net/examples/ajax/null_data_source.html
-                        } ]
-                    });
-                    $("#listealiment tbody").on('click','.delete',function() {
-                        delAliment(this.closest('tr').cells[0].innerHTML);
-                    });
-                    $("#listealiment tbody").on('click','.update', function() {
-                        onEdit(this);
-                    });
-                    $("td").on('click','#clearform', function() {
-                        resetForm();
-                    });
-                    $(".apport").on('submit', function(e){
-                        e.preventDefault();
-                        onFormSubmit();
-                    });
-                } )</script>
         <script src="js/crud.js"></script>
     <?php
        require_once("footer.php");

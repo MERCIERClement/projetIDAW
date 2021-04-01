@@ -130,6 +130,33 @@ function delAliment(idDel){
         }});
     })
 }
+
+$(document).ready( function () {
+    var table =$('#listealiment').DataTable({
+        'ajax':{
+            "url":"../backend/getAliment.php",
+            "dataSrc":""
+        },
+        "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>" //https://datatables.net/examples/ajax/null_data_source.html
+        } ]
+    });
+    $("#listealiment tbody").on('click','.delete',function() {
+        delAliment(this.closest('tr').cells[0].innerHTML);
+    });
+    $("#listealiment tbody").on('click','.update', function() {
+        onEdit(this);
+    });
+    $("td").on('click','#clearform', function() {
+        resetForm();
+    });
+    $(".apport").on('submit', function(e){
+        e.preventDefault();
+        onFormSubmit();
+    });
+} )
 //Login
 
 function chooseLogin(loginChosen){
@@ -225,3 +252,43 @@ function test(){
     alert(document.getElementById("date").value);
 }
 
+$(document).ready( function () {
+    var login = $("#sess").text();
+    var table =$('#listerepas').DataTable({
+        'ajax':{
+            "url":"../backend/getJournal.php?login="+login,
+            "dataSrc":""
+        },
+        "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>" //https://datatables.net/examples/ajax/null_data_source.html
+        } ]
+    });
+    $("#listerepas tbody").on('click','.delete',function() {
+        delJournal(this.closest('tr').cells[0].innerHTML);
+    });
+    $("#listerepas tbody").on('click','.update', function() {
+        onEditJ(this);
+    });
+    $("td").on('click','#clearformJ', function() {
+        resetFormJ();
+    });
+    $("#formJ").on('submit', function(e){
+        e.preventDefault();
+        onFormSubmitJ(login);
+    });
+    $(function(){
+
+        var items="";
+        $.getJSON("../backend/getAliment?id=1",function(data){
+
+        $.each(data,function(index,item) 
+        {
+            items+="<option value='"+item.nom+"'>"+item.nom+"</option>";
+        });
+        $("#nom").html(items); 
+        });
+
+    });
+} )

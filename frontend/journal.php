@@ -42,7 +42,7 @@
                             <input id="formbutton" type="submit" value="Submit">
                         </div>
                         </form>
-                        <button id="clearform" type="button">Clear Form</button>
+                        <button id="clearformJ" type="button">Clear Form</button>
 
                         <?php ?>
                 </td>
@@ -64,46 +64,6 @@
                 </td>
             </tr>
         </table>
-        <script>$(document).ready( function () {
-                    var login = $("#sess").text();
-                    var table =$('#listerepas').DataTable({
-                        'ajax':{
-                            "url":"../backend/getJournal.php?login="+login,
-                            "dataSrc":""
-                        },
-                        "columnDefs": [ {
-                            "targets": -1,
-                            "data": null,
-                            "defaultContent": "<button class=\"delete\">Delete</button><button class=\"update\">Update</button>" //https://datatables.net/examples/ajax/null_data_source.html
-                        } ]
-                    });
-                    $("#listerepas tbody").on('click','.delete',function() {
-                        delJournal(this.closest('tr').cells[0].innerHTML);
-                    });
-                    $("#listerepas tbody").on('click','.update', function() {
-                        onEditJ(this);
-                    });
-                    $("td").on('click','#clearform', function() {
-                        resetFormJ();
-                    });
-                    $("#formJ").on('submit', function(e){
-                        e.preventDefault();
-                        onFormSubmitJ(login);
-                    });
-                    $(function(){
-
-                        var items="";
-                        $.getJSON("../backend/getAliment?id=1",function(data){
-
-                        $.each(data,function(index,item) 
-                        {
-                            items+="<option value='"+item.nom+"'>"+item.nom+"</option>";
-                        });
-                        $("#nom").html(items); 
-                        });
-
-                    });
-                } )</script>
         <script src="js/crud.js"></script>
 </section>
     <?php
