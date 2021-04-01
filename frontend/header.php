@@ -14,7 +14,7 @@
                 $_SESSION['login']=$_COOKIE['login'];
             }
             if(isset($_SESSION['login'])) {
-                echo 'Bonjour '.$_SESSION['login'];
+                echo "<p id='sess'>".$_SESSION['login']."</p>";
             } else {
                 echo "<script>window.location.replace('connexion.php');</script>";
             }

@@ -65,9 +65,10 @@
             </tr>
         </table>
         <script>$(document).ready( function () {
+                    var login = $("#sess").text();
                     var table =$('#listerepas').DataTable({
                         'ajax':{
-                            "url":"../backend/getJournal.php",
+                            "url":"../backend/getJournal.php?login="+login,
                             "dataSrc":""
                         },
                         "columnDefs": [ {

@@ -45,13 +45,15 @@ header('Content-Type: application/json');
         $retour["success"] = false;
         $retour["message"] = "Connexion échouée";
     }
-    if (isset($_GET['id'])) {
-        $requete = $pdo->prepare("SELECT aliment.id_aliment, aliment.nom FROM aliment");
+    if (isset($_GET['login'])) {
+        $login=$_GET['login'];
+        $requete = $pdo->prepare("SELECT journal.ind,aliment.nom,manger.quantite,journal.date FROM journal INNER JOIN manger ON journal.ind=manger.ind INNER JOIN aliment ON manger.id_aliment=aliment.id_aliment WHERE journal.Login=:login");
+        $requete->bindValue(':login',$login, PDO::PARAM_STR);
         $requete->execute();
     
         $retour["success"] = true;
         $retour["message"] = "Voici le journal";
-        $retour["resultats"]["journal"] = $requete->fetchAll();
+        $retour["resultats"]["journal"] = $requete->fetchAll($fetch_style=PDO::FETCH_NUM);
         echo safe_json_encode($retour["resultats"]["journal"]);
     }
     else{
