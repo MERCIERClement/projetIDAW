@@ -191,6 +191,17 @@ function onEditJ(td) {
     document.getElementById("date").value = selectedRow.cells[3].innerHTML;
 }
 
+function delJournal(idDel){
+    $(document).ready(function(){
+        $.ajax({
+            type: "DELETE",
+            url: "../../backend/delJournal.php?id="+idDel,
+            success: function(){
+				$('#listerepas').DataTable().ajax.reload(null,false);
+        }});
+    })
+}
+
 function test(){
     alert(document.getElementById("date").value);
 }

@@ -75,7 +75,7 @@
                         } ]
                     });
                     $("#listerepas tbody").on('click','.delete',function() {
-                        //delAliment(this.closest('tr').cells[0].innerHTML);
+                        delJournal(this.closest('tr').cells[0].innerHTML);
                     });
                     $("#listerepas tbody").on('click','.update', function() {
                         onEditJ(this);
