@@ -15,6 +15,8 @@
             }
             if(isset($_SESSION['login'])) {
                 echo 'Bonjour '.$_SESSION['login'];
+            } else {
+                echo "<script>window.location.replace('connexion.php');</script>";
             }
             ?>
     </header>
