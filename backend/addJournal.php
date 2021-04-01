@@ -15,9 +15,11 @@
             $idAl = $query_idAliment->fetchALL($fetch_style=PDO::FETCH_NUM);
             $id_aliment = $idAl[0][0];
             if(empty($_GET['ind'])){
-                $sql_journal = "INSERT INTO journal (date,Login) VALUES (:date, 'thomas.vinchon@etu.imt-lille-douai.fr');";
+                $login=$_SESSION['login']
+                $sql_journal = "INSERT INTO journal (date,Login) VALUES (:date, :login);";
                 $query_journal = $pdo->prepare($sql_journal);
                 $query_journal->bindValue(':date',$date, PDO::PARAM_STR);
+                $query_journal->bindValue(':login',$login, PDO::PARAM_STR);
                 $query_journal->execute(); 
                 $ind= $pdo->lastInsertId();
                 $date=$_GET['date'];
