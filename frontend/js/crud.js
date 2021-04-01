@@ -4,7 +4,7 @@ function onFormSubmit(){
         let formData = lireLeForm();
         $.ajax({
             type: "GET",
-            url: "../../backend/addAliment.php?type="+formData.type+"&nom="+formData.nom+"&glucides="+formData.glucides+"&proteines="+formData.proteines+"&lipides="+formData.lipides+"&sel="+formData.sel+"&calories="+formData.calories,
+            url: "../../backend/addAliment.php?id="+formData.id+"&type="+formData.type+"&nom="+formData.nom+"&glucides="+formData.glucides+"&proteines="+formData.proteines+"&lipides="+formData.lipides+"&sel="+formData.sel+"&calories="+formData.calories,
             success: function(){
 				$('#listealiment').DataTable().ajax.reload(null,false);
         }
@@ -14,6 +14,7 @@ function onFormSubmit(){
 }
 function lireLeForm() {
     let formData = {};
+    formData["id"] = document.getElementById("id").value;
     formData["type"] = document.getElementById("type").value;
     formData["nom"] = document.getElementById("nom").value;
     formData["glucides"] = document.getElementById("glucides").value;
@@ -45,6 +46,7 @@ function insererEntree(data) {
                         <a onClick="onDelete(this)">Supprimer</a>`;
 }
 function resetForm(){
+    document.getElementById("id").value ="";
     document.getElementById("type").value ="";
     document.getElementById("nom").value ="";
     document.getElementById("glucides").value ="";
@@ -57,6 +59,7 @@ function resetForm(){
 
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
+    document.getElementById("id").value = selectedRow.cells[0].innerHTML;
     document.getElementById("type").value = selectedRow.cells[1].innerHTML;
     document.getElementById("nom").value = selectedRow.cells[2].innerHTML;
     document.getElementById("glucides").value = selectedRow.cells[3].innerHTML;
@@ -136,6 +139,22 @@ function chooseLogin(loginChosen){
     })
 }
 
+function parseLogin(login){
+    var a = login.split('@');
+    var logArray = a[0].split('.');
+    login = "";
+    logArray.forEach(mot => {
+        if(login==""){
+            login+=mot;
+        }
+        else{
+            login+=" "+mot;
+        }
+        
+    });
+    return login;
+}
+
 //Journal
 
 function onFormSubmitJ(){
@@ -205,3 +224,4 @@ function delJournal(idDel){
 function test(){
     alert(document.getElementById("date").value);
 }
+
