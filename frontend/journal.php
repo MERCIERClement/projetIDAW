@@ -88,7 +88,7 @@
                     });
                     $("#formJ").on('submit', function(e){
                         e.preventDefault();
-                        onFormSubmitJ();
+                        onFormSubmitJ(login);
                     });
                     $(function(){
 

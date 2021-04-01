@@ -157,12 +157,12 @@ function parseLogin(login){
 
 //Journal
 
-function onFormSubmitJ(){
+function onFormSubmitJ(login){
     if(validateJ()){
         let formData = lireLeFormJ();
         $.ajax({
             type: "GET",
-            url: "../../backend/addJournal.php?ind="+formData.ind+"&nom="+formData.nom+"&quantite="+formData.quantite+"&date="+formData.date,
+            url: "../../backend/addJournal.php?ind="+formData.ind+"&nom="+formData.nom+"&quantite="+formData.quantite+"&date="+formData.date+"&login="+login,
             success: function(){
 				$('#listerepas').DataTable().ajax.reload(null,false);
         }
