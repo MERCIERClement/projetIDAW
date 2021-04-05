@@ -27,7 +27,7 @@
             </p>
             <p>
                 <label>Poids (en kg)</label>
-                <input type="number" name="poids" id="poids" min="0">
+                <input type="number" name="poids" id="poids" min="0" step="0.01">
             </p>
             <p>
                 <label>Taille (en cm)</label>

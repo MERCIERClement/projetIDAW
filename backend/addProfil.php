@@ -10,7 +10,7 @@
             $query_modify_utilisateur = $pdo->prepare($sql_modify_utilisateur);
             $taille = (int) $_GET['taille'];
             $age = (int) $_GET['age'];
-            $poids = (int) $_GET['poids'];
+            $poids = (float) $_GET['poids'];
             $sport = (int) $_GET['sport'];
             $login =$_GET['login'];
             $query_modify_utilisateur->bindValue(':taille',$taille, PDO::PARAM_INT);
