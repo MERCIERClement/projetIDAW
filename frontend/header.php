@@ -14,11 +14,18 @@
                 $_SESSION['login']=$_COOKIE['login'];
             }
             if(isset($_SESSION['login'])) {
-                echo "<p id='sess'>".$_SESSION['login']."</p>";
+                echo "<p>Connecté en tant que : <span id='sess'>".$_SESSION['login']."</span> <button class=\"changeuser\">Changer d'utilisateur...</button></p>";
             } else {
                 echo "<script>window.location.replace('connexion.php');</script>";
             }
             ?>
     </header>
+    <script>
+        $(document).ready( function () {
+            $("header").on('click','.changeuser',function() {
+                document.location.href="connexion.php";     
+                });
+            })
+    </script>
     <body>
         <div class="main-container">
