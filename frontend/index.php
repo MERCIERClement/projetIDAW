@@ -23,8 +23,21 @@ if (!isset($_COOKIE["age"])) {
     $taille=$_COOKIE["taille"];
     $sexe=$_COOKIE["sexe"];
     $sport=$_COOKIE["sport"];
+    $date=date("Y-m-d");
     echo "<h2>Votre IMC</h2> 
-          <p>".$taille."</p>";}
+          <p>". ($poids)/($taille/100)**2 ."</p>";
+    if ((($poids)/($taille/100)**2)>25) {
+        echo "<p>25 est la limite du surpoids.";
+        } elseif ((($poids)/($taille/100)**2)<20) {
+            echo "<p>20 est la limite de la situation de maigreur.";
+        }
+    echo "<h2>Vos besoins journaliers en kilo-calories(kcal) :</h2>";
+    if ($sexe==0) {
+        echo "<p>". (13.7516*$poids + 5.0033*$taille - 6.7550*$age + 66.473)*(1.3+(0.06*$sport)) ." kcal</p>";
+    } else {
+        echo "<p>". (9.5634*$poids + 1.8496*$taille - 4.6756*$age + 655.0955)*(1.3+(0.06*$sport)) ." kcal</p>";
+    }
+    }
 ?>
 </section>
     <?php

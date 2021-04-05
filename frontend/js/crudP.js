@@ -34,6 +34,11 @@ function onFormSubmitP(){
             type: "GET",
             url: "../../backend/addProfil.php?login="+formData.login+"&age="+formData.age+"&poids="+formData.poids+"&taille="+formData.taille+"&sport="+formData.sport+"&sexe="+formData.sexe,
             success: function(){
+                document.cookie = 'age='+formData.age;
+                document.cookie = 'poids='+formData.poids;
+                document.cookie = 'sexe='+formData.sexe;
+                document.cookie = 'taille='+formData.taille;
+                document.cookie = 'sport='+formData.sport;
         }
         })
     }
