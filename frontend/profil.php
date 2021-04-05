@@ -30,6 +30,10 @@
                 <input type="number" name="poids" id="poids" min="0">
             </p>
             <p>
+                <label>Sexe</label>
+                <input type="number" name="sexe" id="sexe" min="0" max="1">
+            </p>
+            <p>
                 <label>Taille (en cm)</label>
                 <input type="number" name="taille" id="taille" min="0">
             </p>

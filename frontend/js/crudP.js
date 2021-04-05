@@ -4,8 +4,9 @@ function onProfil(profil) {
     document.getElementById("login").value = profil[0];
     document.getElementById("age").value = profil[1];
     document.getElementById("poids").value = profil[2];
-    document.getElementById("taille").value = profil[3];
-    document.getElementById("sport").value = profil[4];
+    document.getElementById("sexe").value = profil[3];
+    document.getElementById("taille").value = profil[4];
+    document.getElementById("sport").value = profil[5];
 }
 
 $(document).ready( function () {
@@ -15,8 +16,9 @@ $(document).ready( function () {
         profil[0]=data[0].Login;
         profil[1]=parseInt(data[0].Age,10);
         profil[2]=parseInt(data[0].Poids,10);
-        profil[3]=parseInt(data[0].Taille,10);
-        profil[4]=parseInt(data[0].Sport,10);
+        profil[3]=parseInt(data[0].Sexe,10);
+        profil[4]=parseInt(data[0].Taille,10);
+        profil[5]=parseInt(data[0].Sport,10);
         onProfil(profil);
     });
     $(".profil").on('submit', function(e){
@@ -30,7 +32,7 @@ function onFormSubmitP(){
         let formData = lireLeFormP();
         $.ajax({
             type: "GET",
-            url: "../../backend/addProfil.php?login="+formData.login+"&age="+formData.age+"&poids="+formData.poids+"&taille="+formData.taille+"&sport="+formData.sport,
+            url: "../../backend/addProfil.php?login="+formData.login+"&age="+formData.age+"&poids="+formData.poids+"&taille="+formData.taille+"&sport="+formData.sport+"&sexe="+formData.sexe,
             success: function(){
         }
         })
@@ -59,5 +61,6 @@ function lireLeFormP() {
     formData["poids"] = document.getElementById("poids").value;
     formData["taille"] = document.getElementById("taille").value;
     formData["sport"] = document.getElementById("sport").value;
+    formData["sexe"] = document.getElementById("sexe").value;
     return formData
 }

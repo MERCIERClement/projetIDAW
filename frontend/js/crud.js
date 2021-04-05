@@ -161,11 +161,30 @@ $(document).ready( function () {
 
 function chooseLogin(loginChosen){
     $(document).ready(function(){
-        document.cookie = 'login='+loginChosen;
-        document.location.href="index.php"; 
+        document.cookie = 'login='+loginChosen;  
+        var profil=[];
+        $.ajax({
+            type: "GET",
+            url: "../backend/getLogin.php?login="+loginChosen,
+            success : function(data){
+            profil[0]=data[0].loginChosen;
+            profil[1]=parseInt(data[0].Age,10);
+            profil[2]=parseInt(data[0].Poids,10);
+            profil[3]=parseInt(data[0].Sexe,10);
+            profil[4]=parseInt(data[0].Taille,10);
+            profil[5]=parseInt(data[0].Sport,10);
+
+            document.cookie = 'age='+profil[1];
+            document.cookie = 'poids='+profil[2];
+            document.cookie = 'sexe='+profil[3];
+            document.cookie = 'taille='+profil[4];
+            document.cookie = 'sport='+profil[5];
+            document.location.href="index.php";
+            }
+        })
     })
 }
-
+            
 function parseLogin(login){
     var a = login.split('@');
     var logArray = a[0].split('.');

@@ -14,9 +14,18 @@
         require_once($pageToInclude);
     else
         require_once("error.php");
+if (!isset($_COOKIE["age"])) {
+    echo "<h2>Oups !</h2>
+          <p>Veuillez essayer de vous connecter à nouveau une erreur est arrivée :( </p>";
+} else {
+    $poids=$_COOKIE["poids"];
+    $age=$_COOKIE["age"];
+    $taille=$_COOKIE["taille"];
+    $sexe=$_COOKIE["sexe"];
+    $sport=$_COOKIE["sport"];
+    echo "<h2>Votre IMC</h2> 
+          <p>".$taille."</p>";}
 ?>
-    <h2>Du contenu</h2> 
-                <p>Toujours + de contenu</p>
 </section>
     <?php
         require_once("footer.php");
