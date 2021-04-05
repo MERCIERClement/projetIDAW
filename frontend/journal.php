@@ -64,7 +64,7 @@
                 </td>
             </tr>
         </table>
-        <script src="js/crud.js"></script>
+        <script src="js/crudJ.js"></script>
 </section>
     <?php
         require_once("footer.php");

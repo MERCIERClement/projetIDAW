@@ -42,7 +42,7 @@
             </div>
         </form>
     </div>
-    <script src="js/crud.js"></script>
+    <script src="js/crudP.js"></script>
 </section>
     <?php
         require_once("footer.php");
