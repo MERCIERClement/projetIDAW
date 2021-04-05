@@ -16,7 +16,7 @@
         require_once("error.php");
 ?>
     <div class="form">
-        <form class="profil" method="GET" action="../backend/addAliment.php" autocomplete="off" target="iframe"> 
+        <form class="profil" method="GET" action="../backend/addProfil.php" autocomplete="off" target="iframe"> 
             <div>
                 <label>Login</label>
                 <input type="text" name="login" id="login" readonly>   
