@@ -45,6 +45,17 @@ header('Content-Type: application/json');
         $retour["success"] = false;
         $retour["message"] = "Connexion échouée";
     }
+    if (isset($_GET['login'])) {
+        $requete = $pdo->prepare("SELECT * FROM utilisateur where Login=:login");
+        $requete->bindValue(':login',$_GET['login'], PDO::PARAM_STR);
+        $requete->execute();
+    
+        $retour["success"] = true;
+        $retour["message"] = "Voici le login";
+        $retour["resultats"]["login"] = $requete->fetchAll();
+        echo safe_json_encode($retour["resultats"]["login"]);
+    }
+    else{
     $requete = $pdo->prepare("SELECT * FROM utilisateur");
     $requete->execute();
 
@@ -52,4 +63,5 @@ header('Content-Type: application/json');
     $retour["message"] = "Voici les login";
     $retour["resultats"]["login"] = $requete->fetchAll();
     echo safe_json_encode($retour["resultats"]["login"]);
+    }
     ?>

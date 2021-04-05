@@ -304,13 +304,14 @@ function onProfil(profil) {
 }
 
 $(document).ready( function () {
+    var login = $("#sess").text();
     var profil=[];
-    $.getJSON('../backend/getLogin.php',function(data){
-        profil[0]=data.Login;
-        profil[1]=data.Age;
-        profil[2]=data.Poids;
-        profil[3]=data.Taille;
-        profil[4]=data.Sport;
+    $.getJSON('../backend/getLogin.php?login='+login,function(data){
+        profil[0]=data[0].Login;
+        profil[1]=parseInt(data[0].Age,10);
+        profil[2]=parseInt(data[0].Poids,10);
+        profil[3]=parseInt(data[0].Taille,10);
+        profil[4]=parseInt(data[0].Sport,10);
         onProfil(profil);
     });
     $(".profil").on('submit', function(e){
@@ -328,7 +329,6 @@ function onFormSubmitP(login){
             success: function(){
         }
         })
-        resetFormP();
     }
 }
 

@@ -11,6 +11,7 @@
             $query_modify_utilisateur->bindValue(':age',$_GET['age'], PDO::PARAM_INT);
             $query_modify_utilisateur->bindValue(':poids',$_GET['poids'], PDO::PARAM_INT);
             $query_modify_utilisateur->bindValue(':sport',$_GET['sport'], PDO::PARAM_INT);
+            $query_modify_utilisateur->bindValue(':login',$_GET['login'], PDO::PARAM_STR);
             $query_modify_utilisateur->execute(); 
         }
 ?>
