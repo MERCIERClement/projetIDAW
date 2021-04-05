@@ -15,8 +15,34 @@
     else
         require_once("error.php");
 ?>
-    <h2>Du contenu</h2> 
-                <p>Toujours + de contenu</p>
+    <div class="form">
+        <form class="profil" method="GET" action="../backend/addAliment.php" autocomplete="off" target="iframe"> 
+            <div>
+                <label>Login</label>
+                <input type="text" name="login" id="login" readonly>   
+            </div>
+            <p>
+                <label>Age</label><label class="validation-error hide" id="nomValidationError">Veuillez remplir toutes les informations s'il vous plaît</label>
+                <input type="number" name="age" id="age" min="0">
+            </p>
+            <p>
+                <label>Poids (en kg)</label>
+                <input type="number" name="poids" id="poids" min="0">
+            </p>
+            <p>
+                <label>Taille (en cm)</label>
+                <input type="number" name="taille" id="taille" min="0">
+            </p>
+            <p>
+                <label>Pratique du sport (1 à 10)</label>
+                <input type="number" name="sport" id="sport" min="0" max="10">
+            </p>
+            <div class="bouton-du-form">
+                <input id="profilbutton" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <script src="js/crud.js"></script>
 </section>
     <?php
         require_once("footer.php");

@@ -81,10 +81,6 @@ body > table{
     cursor: pointer;
   }
   
-  form div.form-action-buttons{
-    text-align: right;
-  }
-  
   a{
     cursor: pointer;
     text-decoration: underline;
@@ -162,4 +158,42 @@ body > table{
 
 #sess{
   font-weight: bold;
+}
+
+.profil input[type=text], input[type=number] {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.profil input[type=submit]{
+  width: 40%;
+  background-color: #ddd;
+  color: #000;
+  padding: 2px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+div.form
+{
+    display: block;
+    text-align: center;
+}
+.profil
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.bouton-du-form{
+  text-align: center;
 }

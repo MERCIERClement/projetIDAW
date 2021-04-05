@@ -14,7 +14,7 @@
                 $_SESSION['login']=$_COOKIE['login'];
             }
             if(isset($_SESSION['login'])) {
-                echo "<p>Connecté en tant que : <span id='sess'>".$_SESSION['login']."</span> <button class=\"changeuser\">Changer d'utilisateur...</button></p>";
+                echo "<p>Connecté(e) en tant que : <span id='sess'>".$_SESSION['login']."</span> <button class=\"changeuser\">Changer d'utilisateur...</button></p>";
             } else {
                 echo "<script>window.location.replace('connexion.php');</script>";
             }

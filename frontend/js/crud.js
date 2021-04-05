@@ -292,3 +292,67 @@ $(document).ready( function () {
 
     });
 } )
+
+//Profil
+
+function onProfil(profil) {
+    document.getElementById("login").value = profil[0];
+    document.getElementById("age").value = profil[1];
+    document.getElementById("poids").value = profil[2];
+    document.getElementById("taille").value = profil[3];
+    document.getElementById("sport").value = profil[4];
+}
+
+$(document).ready( function () {
+    var profil=[];
+    $.getJSON('../backend/getLogin.php',function(data){
+        profil[0]=data.Login;
+        profil[1]=data.Age;
+        profil[2]=data.Poids;
+        profil[3]=data.Taille;
+        profil[4]=data.Sport;
+        onProfil(profil);
+    });
+    $(".profil").on('submit', function(e){
+        e.preventDefault();
+        onFormSubmitP(login);
+    });
+} )
+
+function onFormSubmitP(login){
+    if(validateP()){
+        let formData = lireLeFormP();
+        $.ajax({
+            type: "GET",
+            url: "../../backend/addProfil.php?login="+formData.login+"&age="+formData.age+"&poids="+formData.poids+"&taille="+formData.taille+"&sport="+formData.sport,
+            success: function(){
+        }
+        })
+        resetFormP();
+    }
+}
+
+function validateP() {
+    isValid=true;
+    if(document.getElementById('age').value == "" || document.getElementById('poids').value == "" || document.getElementById('taille').value == ""|| document.getElementById('sport').value == ""){
+        isValid= false;
+        document.getElementById("nomValidationError").classList.remove('hide');
+    }
+    else{
+        isValid=true;
+        if(!document.getElementById("nomValidationError").classList.contains('hide')){
+            document.getElementById("nomValidationError").classList.add('hide')
+        }
+    }
+    return isValid;
+}
+
+function lireLeFormP() {
+    let formData = {};
+    formData["login"] = document.getElementById("login").value;
+    formData["age"] = document.getElementById("age").value;
+    formData["poids"] = document.getElementById("poids").value;
+    formData["taille"] = document.getElementById("taille").value;
+    formData["sport"] = document.getElementById("sport").value;
+    return formData
+}
